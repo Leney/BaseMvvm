@@ -5,5 +5,6 @@ enum class BaseStatus {
     BASE_STATUS_LOADING, // 显示加载视图
     BASE_STATUS_ERROR, // 显示错误视图
     BASE_STATUS_EMPTY, // 显示空视图
-    BASE_STATUS_TOAST     // 弹Toast
+    BASE_STATUS_TOAST, // 弹Toast
+    BASE_STATUS_NONE   // 不显示任何视图
 }

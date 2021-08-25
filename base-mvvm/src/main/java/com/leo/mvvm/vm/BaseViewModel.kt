@@ -24,7 +24,7 @@ abstract class BaseViewModel : ViewModel() {
     /**
      * 当前界面显示视图类型状态
      */
-    val baseStatus = MutableLiveData(BaseStatusBean(BaseStatus.BASE_STATUS_LOADING))
+    val baseStatus = MutableLiveData(BaseStatusBean(BaseStatus.BASE_STATUS_NONE))
 
     /**
      * 显示内容视图
@@ -36,7 +36,7 @@ abstract class BaseViewModel : ViewModel() {
     /**
      * 显示正在加载视图
      */
-    fun showLoading() {
+    fun showLoadingView() {
         baseStatus.postValue(BaseStatusBean(BaseStatus.BASE_STATUS_LOADING))
     }
 

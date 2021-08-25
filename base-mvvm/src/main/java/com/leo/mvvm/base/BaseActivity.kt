@@ -8,9 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
  * Activity 基类
  */
 abstract class BaseActivity : AppCompatActivity() {
+    protected val TAG = BaseActivity::class.java.simpleName
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if(!isDataBindView()){
+        if (!isDataBindView()) {
             // 如果不是DataBind界面
             setContentView(getLayoutId())
             initView()
@@ -21,10 +22,10 @@ abstract class BaseActivity : AppCompatActivity() {
     @LayoutRes
     abstract fun getLayoutId(): Int
     abstract fun initView()
-    protected open fun initData(){}
+    protected open fun initData() {}
 
     /**
      * 是否是DataBind界面
      */
-    protected open fun isDataBindView():Boolean = false
+    protected open fun isDataBindView(): Boolean = false
 }

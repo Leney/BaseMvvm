@@ -14,6 +14,7 @@ import com.leo.mvvm.bean.BaseEmptyViewBean
 import com.leo.mvvm.bean.BaseErrorViewBean
 import com.leo.mvvm.bean.BaseStatus
 import com.leo.mvvm.databinding.ActivityVmBaseBinding
+import com.leo.mvvm.utils.DLog
 import com.leo.mvvm.utils.dip
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -60,13 +61,15 @@ abstract class BaseVMActivity<VM : BaseViewModel, V : ViewDataBinding> : BaseAct
     protected open fun observeData() {
         // 监听视图显示状态变化
         _viewModel.baseStatus.observe(this, {
-            Log.i("llj", "视图状态更改--------->>>${it.viewStatus}")
             when (it.viewStatus) {
                 BaseStatus.BASE_STATUS_CONTENT -> showContentView() // 显示内容视图
                 BaseStatus.BASE_STATUS_LOADING -> showLoadingView() // 显示正在加载视图
                 BaseStatus.BASE_STATUS_ERROR -> showErrorView() // 显示错误视图
                 BaseStatus.BASE_STATUS_EMPTY -> showEmptyView() // 显示空视图
                 BaseStatus.BASE_STATUS_TOAST -> showToastView() // 显示Toast视图
+                BaseStatus.BASE_STATUS_NONE -> {
+                    DLog.i(TAG, "视图状态更改--------->>>${it.viewStatus}")
+                }
             }
         })
     }
