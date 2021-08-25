@@ -59,6 +59,12 @@ dependencies {
     // constraintLayout引入
     api "androidx.constraintlayout:constraintlayout:2.0.4"
 
+    // mmkv 内存映射配置管理(相当于SharedPreference使用)
+    api "com.tencent:mmkv-static:1.2.10"
+
+    // gson
+    api "com.google.code.gson:gson:2.8.6"
+
     // koin 注入框架
     def koin_version = '3.1.2'
 //    api "io.insert-koin:koin-android-viewmodel:$koin_version"
