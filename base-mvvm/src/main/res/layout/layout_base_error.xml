@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.leo.mvvm.bean.BaseStatus" />
+
+        <variable
+            name="viewStatus"
+            type="com.leo.mvvm.bean.BaseStatusBean" />
+
+        <variable
+            name="viewModel"
+            type="com.leo.mvvm.vm.BaseViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="@{viewModel.netErrorClick}"
+        android:orientation="vertical"
+        android:visibility="@{viewStatus.viewStatus == BaseStatus.BASE_STATUS_ERROR?View.VISIBLE:View.GONE}">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="错误视图"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击重试" />
+    </LinearLayout>
+</layout>
