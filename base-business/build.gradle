@@ -1,7 +1,6 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
-    id 'kotlin-kapt' // dataBinding需要
 }
 
 android {
@@ -9,13 +8,13 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.leo.mvvmdemo"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -31,18 +30,22 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8
     }
-
-    // 启用数据绑定DataBinding
-    dataBinding {
-        enabled = true
-    }
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.+'
+    // 默认
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    // 导入base-business
-    implementation project(path: ':base-business')
- }
+    // 导入base-mvvm
+    api project(path: ':base-mvvm')
+
+    // retrofit
+    def retrofit_version = '2.7.1'
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    api "com.squareup.okhttp3:logging-interceptor:4.0.0"
+    api "com.squareup.okhttp3:okhttp:4.2.0"
+
+}

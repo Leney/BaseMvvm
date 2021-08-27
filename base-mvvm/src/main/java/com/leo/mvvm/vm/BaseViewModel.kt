@@ -3,14 +3,33 @@ package com.leo.mvvm.vm
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.leo.mvvm.bean.BaseStatus
 import com.leo.mvvm.bean.BaseStatusBean
 import com.leo.mvvm.bean.BaseTitleBean
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 /**
  * MVVM ViewModel基类
  */
 abstract class BaseViewModel : ViewModel() {
+    /**
+     * UI协程中执行
+     */
+    fun launchOnUI(block: suspend CoroutineScope.() -> Unit) {
+        viewModelScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT) { block() }
+    }
+
+    /**
+     * IO协程执行
+     */
+    fun <T> launchOnIO(block: suspend CoroutineScope.() -> T) {
+        viewModelScope.launch(Dispatchers.IO, CoroutineStart.DEFAULT) { block() }
+    }
+
     /**
      * 网络错误重新加载事件
      */

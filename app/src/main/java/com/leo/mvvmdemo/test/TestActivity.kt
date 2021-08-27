@@ -1,11 +1,11 @@
 package com.leo.mvvmdemo.test
 
-import com.leo.mvvm.vm.BaseVMActivity
+import com.leo.base_business.base.ui.BusinessVMActivity
 import com.leo.mvvmdemo.R
 import com.leo.mvvmdemo.databinding.ActivityTestBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TestActivity : BaseVMActivity<TestViewModel, ActivityTestBinding>() {
+class TestActivity : BusinessVMActivity<TestViewModel, ActivityTestBinding>() {
     override fun getLayoutId(): Int = R.layout.activity_test
 
     val testViewModel: TestViewModel by viewModel()
