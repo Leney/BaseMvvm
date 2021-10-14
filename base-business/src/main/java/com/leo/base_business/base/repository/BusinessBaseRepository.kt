@@ -30,7 +30,7 @@ open class BusinessBaseRepository {
      */
     private suspend fun <T : Any> execute(response: BusinessResponseBean<T>): BusinessBaseResult<T> {
         return coroutineScope {
-            if (response.code == 200) {
+            if (response.code == BusinessResponseBean.SUCCESS_CODE) {
                 // 请求成功
                 // 返回请求成功的封装对象
                 BusinessBaseResult.Success(response.data)

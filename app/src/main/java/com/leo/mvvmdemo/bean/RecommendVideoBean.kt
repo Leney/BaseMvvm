@@ -1,13 +1,15 @@
 package com.leo.mvvmdemo.bean
 
+import com.chad.library.adapter.base.entity.MultiItemEntity
+
 data class RecommendVideoBean(
     val adIndex: Int,
     val `data`: Data,
     val id: Int,
     val tag: Any,
     val trackingData: Any,
-    val type: String
-)
+    val type: String, override var itemType: Int
+):MultiItemEntity
 
 data class Data(
     val ad: Boolean,
@@ -89,7 +91,7 @@ data class Cover(
     val blurred: String,
     val detail: String,
     val feed: String,
-    val homepage: Any,
+    val homepage: String,
     val sharing: Any
 )
 

@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="recommendVideoBean"
-            type="com.leo.mvvmdemo.bean.RecommendVideoBean" />
+            name="newsInfo"
+            type="com.leo.mvvmdemo.bean.NewsInfo" />
 
         <variable
             name="recommendViewModel"
@@ -17,13 +17,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{()->recommendViewModel.itemClick(context,recommendVideoBean)}"
         android:paddingLeft="@dimen/dp_10"
         android:paddingRight="@dimen/dp_10">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/icon"
-            bindUrl="@{recommendVideoBean.data.cover.feed}"
+            bindUrl="@{newsInfo.pic}"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -33,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_10"
-            android:text="@{recommendVideoBean.data.author.name}"
+            android:text="@{newsInfo.title}"
             app:layout_constraintBottom_toBottomOf="@id/icon"
             app:layout_constraintLeft_toRightOf="@id/icon"
             app:layout_constraintTop_toTopOf="@id/icon"

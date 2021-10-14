@@ -8,8 +8,13 @@
             type="com.leo.mvvmdemo.viewmodel.RecommendVideoViewModel" />
     </data>
 
-    <androidx.recyclerview.widget.RecyclerView
-        bindVerticalLayout="@{viewModel.adapter}"
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            bindVerticalLayout="@{viewModel.adapter}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 </layout>

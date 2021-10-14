@@ -10,6 +10,7 @@ class ActivityRecommendVideoList :
     override fun getLayoutId(): Int = R.layout.activity_recommend_video_list
 
     override fun initView() {
+        mViewModel.setTitle("推荐视频")
         mViewModel.getRecommendVideoList()
     }
 

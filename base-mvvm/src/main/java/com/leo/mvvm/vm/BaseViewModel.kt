@@ -4,6 +4,7 @@ import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.leo.mvvm.APP_CONTEXT
 import com.leo.mvvm.bean.BaseStatus
 import com.leo.mvvm.bean.BaseStatusBean
 import com.leo.mvvm.bean.BaseTitleBean
@@ -43,7 +44,21 @@ abstract class BaseViewModel : ViewModel() {
     /**
      * 当前界面显示视图类型状态
      */
-    val baseStatus = MutableLiveData(BaseStatusBean(BaseStatus.BASE_STATUS_NONE))
+    val baseStatus = MutableLiveData(BaseStatusBean(BaseStatus.BASE_STATUS_LOADING))
+
+    /**
+     * 设置标题名称
+     */
+    fun setTitle(resId:Int){
+        baseTitleModel.setTitle(APP_CONTEXT.resources.getString(resId))
+    }
+
+    /**
+     * 设置标题名称
+     */
+    fun setTitle(titleName:String){
+        baseTitleModel.setTitle(titleName)
+    }
 
     /**
      * 显示内容视图

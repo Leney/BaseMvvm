@@ -1,6 +1,7 @@
 package com.leo.base_business.base.net
 
 import com.leo.base_business.base.net.BusinessBaseResult
+import com.leo.mvvm.utils.DLog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -19,6 +20,7 @@ suspend inline fun <T : Any> BusinessBaseResult<T>.checkResult(
             onSuccess(data)
         }
     } else if (this is BusinessBaseResult.Error) {
+        DLog.e("BusinessBaseResult","errorMsg--->>>$errorMsg")
         withContext(Dispatchers.Main) {
             onError(errorMsg)
         }
@@ -40,6 +42,7 @@ suspend inline fun <T : Any> BusinessBaseResult<T>.checkResult2(
         }
 
     } else if (this is BusinessBaseResult.Error) {
+        DLog.e("BusinessBaseResult","errorMsg--->>>$errorMsg")
         withContext(Dispatchers.Main) {
             onError(errorMsg, code)
         }
@@ -58,6 +61,7 @@ suspend inline fun <T : Any> BusinessBaseResult<T>.checkResultByAsyn(
     if (this is BusinessBaseResult.Success) {
         onSuccess(data)
     } else if (this is BusinessBaseResult.Error) {
+        DLog.e("BusinessBaseResult","errorMsg--->>>$errorMsg")
         onError(errorMsg)
     }
 }
@@ -77,6 +81,7 @@ suspend inline fun <T : Any> BusinessBaseResult<T>.checkResultByAsyn2(
         }
 
     } else if (this is BusinessBaseResult.Error) {
+        DLog.e("BusinessBaseResult","errorMsg--->>>$errorMsg")
         withContext(Dispatchers.Main) {
             onError(errorMsg, code)
         }

@@ -65,7 +65,7 @@ dependencies {
     api "com.google.code.gson:gson:2.8.6"
 
     // adapter
-    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4@aar"
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
 
     // koin 注入框架
     def koin_version = '3.1.2'
