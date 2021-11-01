@@ -23,4 +23,10 @@
         android:layout_height="wrap_content"
         android:text="推荐视频列表"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/permissionsRequestBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="权限申请"/>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

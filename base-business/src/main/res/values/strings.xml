@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="business_request_permissions">权限请求</string>
+    <string name="business_need_allow_permissions">需要您同意相关权限</string>
+    <string name="business_cancel">取消</string>
+    <string name="business_setting">设置</string>
+</resources>

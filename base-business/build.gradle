@@ -74,4 +74,7 @@ dependencies {
     // 雷达刷新样式
     implementation "com.scwang.smart:refresh-header-radar:2.0.3"
 
+    // 权限处理库
+    implementation "pub.devrel:easypermissions:3.0.0"
+
 }

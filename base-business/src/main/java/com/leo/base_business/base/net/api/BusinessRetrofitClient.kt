@@ -25,7 +25,7 @@ class BusinessRetrofitClient {
         val instance by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { BusinessRetrofitClient() }
     }
 
-    val client: OkHttpClient
+    private val client: OkHttpClient
         get() {
             val builder = OkHttpClient.Builder()
                 .connectTimeout(TIME_OUT.toLong(), TimeUnit.SECONDS)
